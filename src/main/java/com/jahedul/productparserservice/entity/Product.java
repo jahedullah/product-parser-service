@@ -1,11 +1,11 @@
 package com.jahedul.productparserservice.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 @Entity
@@ -14,15 +14,21 @@ import java.time.ZonedDateTime;
 @Setter
 public class Product {
     @Id
+    @NotBlank(message = "sku cannot be empty")
+    @Size(min = 5, max = 20, message = "please keep the sku length between 5 and 20")
     private String sku;
 
     @Column(nullable = false)
+    @NotBlank(message = "please provide a title for the product")
     private String title;
 
     @Column(nullable = false)
+    @NotNull(message = "price cannot be empty")
+    @Positive(message = "price must be a positive value")
     private BigDecimal price;
 
     @Column(nullable = false)
+    @PositiveOrZero(message = "quantity must be zero or positive")
     private int quantity;
 
     @Column(nullable = false)
