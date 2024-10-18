@@ -1,11 +1,12 @@
 package com.jahedul.productparserservice.entity;
 
 import jakarta.persistence.*;
+import lombok.Setter;
 
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 @Entity
+@Setter
 @Table(name = "file_upload_summaries")
 public class FileUploadSummary {
     @Id
@@ -23,7 +24,4 @@ public class FileUploadSummary {
 
     @Column(nullable = false)
     private int productsUpdated;
-
-    @Column(nullable = false)
-    private int productsDeleted;
 }
