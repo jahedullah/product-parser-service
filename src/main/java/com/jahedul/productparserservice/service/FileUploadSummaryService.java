@@ -1,7 +1,7 @@
 package com.jahedul.productparserservice.service;
 
-import org.springframework.stereotype.Service;
+import com.jahedul.productparserservice.model.FileUploadSummaryResource;
 
-@Service
-public class FileUploadSummaryService {
+public interface FileUploadSummaryService {
+    FileUploadSummaryResource getSummaryOfLastUploadedFile();
 }
