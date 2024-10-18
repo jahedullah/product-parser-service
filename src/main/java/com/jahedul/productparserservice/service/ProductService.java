@@ -1,13 +1,16 @@
 package com.jahedul.productparserservice.service;
 
 import com.jahedul.productparserservice.entity.Product;
-import com.jahedul.productparserservice.model.ProductResource;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public interface ProductService {
-    Product getProductBySku(String sku);
+    Optional<Product> getProductBySku(String sku);
     List<Product> getProducts();
+    void uploadProductsFromFile(MultipartFile file) throws IOException;
     Product saveProduct(Product product);
     Product updateProduct(String sku, Product product);
     void deleteProduct(String sku);
