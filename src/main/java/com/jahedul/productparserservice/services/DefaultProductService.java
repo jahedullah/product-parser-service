@@ -2,6 +2,7 @@ package com.jahedul.productparserservice.services;
 
 import com.jahedul.productparserservice.entities.Product;
 import com.jahedul.productparserservice.exceptions.DuplicateSkuException;
+import com.jahedul.productparserservice.exceptions.NoRecordToUpdateOrInsertException;
 import com.jahedul.productparserservice.models.FileUploadSummaryResource;
 import com.jahedul.productparserservice.repositories.ProductRepository;
 import com.jahedul.productparserservice.utils.ExceptionParser;
@@ -115,7 +116,9 @@ public class DefaultProductService implements ProductService {
     private void saveProducts(List<Product> productsToAdd, List<Product> productsToUpdate) {
         System.out.println("saving to db initiated");
         long s = System.currentTimeMillis();
-
+        if (productsToAdd.isEmpty() && productsToUpdate.isEmpty()) {
+            throw new NoRecordToUpdateOrInsertException("No products to add or update");
+        }
         try {
             Stream.of(productsToAdd, productsToUpdate)
                     .filter(list -> !list.isEmpty())
