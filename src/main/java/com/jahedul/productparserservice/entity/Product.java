@@ -15,7 +15,7 @@ import java.time.ZonedDateTime;
 public class Product {
     @Id
     @NotBlank(message = "sku cannot be empty")
-    @Size(min = 5, max = 20, message = "please keep the sku length between 5 and 20")
+    @Size(min = 5, max = 30, message = "please keep the sku length between 5 and 30")
     private String sku;
 
     @Column(nullable = false)
