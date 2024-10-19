@@ -39,4 +39,10 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse(HttpStatus.NOT_FOUND.value(), ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(NoRecordToUpdateOrInsertException.class)
+    public ResponseEntity<ErrorResponse> handleNoRecordToUpdateOrInsertException(NoRecordToUpdateOrInsertException ex) {
+        ErrorResponse errorResponse = new ErrorResponse(HttpStatus.NO_CONTENT.value(), ex.getMessage());
+        return new ResponseEntity<>(errorResponse, HttpStatus.NO_CONTENT);
+    }
 }
