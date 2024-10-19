@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FileUploadSummaryRepository extends JpaRepository<FileUploadSummary, Long> {
+    FileUploadSummary findFirstByOrderByUploadDateTimeDesc();
 }
