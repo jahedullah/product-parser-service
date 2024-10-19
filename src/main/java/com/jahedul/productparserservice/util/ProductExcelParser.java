@@ -20,6 +20,8 @@ import java.util.Objects;
 public class ProductExcelParser {
 
     public List<Product> parseFileToProducts(MultipartFile file) throws IOException {
+        System.out.println("Parsing started");
+        long s = System.currentTimeMillis();
         List<Product> products = new ArrayList<>();
 
         if (file.isEmpty()) {
@@ -39,7 +41,9 @@ public class ProductExcelParser {
                 products.add(product);
             }
         }
-
+        long e = System.currentTimeMillis();
+        long d = e - s;
+        System.out.println("Time took in parsing : " + d);
         return products;
     }
 
