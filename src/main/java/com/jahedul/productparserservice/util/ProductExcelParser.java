@@ -46,7 +46,7 @@ public class ProductExcelParser {
     private Product createProductFromRow(Row row) {
         String sku = getCellValue(row.getCell(0));
         String title = getCellValue(row.getCell(1));
-        BigDecimal price = new BigDecimal(getCellValue(row.getCell(2)));
+        BigDecimal price = parsePriceWithPrecision(getCellValue(row.getCell(2)));
         int quantity = (int) Math.floor(Double.parseDouble(getCellValue(row.getCell(3))));
         ZonedDateTime lastUpdated = ZonedDateTime.now();
 
@@ -58,6 +58,17 @@ public class ProductExcelParser {
         product.setLastUpdated(lastUpdated);
 
         return product;
+    }
+
+
+    private BigDecimal parsePriceWithPrecision(String priceString) {
+        try {
+            priceString = priceString.replaceAll("[^\\d.]", "");
+            BigDecimal price = new BigDecimal(priceString);
+            return price.setScale(2, BigDecimal.ROUND_HALF_UP);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid price format: " + priceString, e);
+        }
     }
 
     private String getCellValue(Cell cell) {
