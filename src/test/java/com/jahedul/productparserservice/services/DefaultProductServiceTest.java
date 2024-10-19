@@ -1,6 +1,7 @@
 package com.jahedul.productparserservice.services;
 
 import com.jahedul.productparserservice.entities.Product;
+import com.jahedul.productparserservice.exceptions.NoRecordToUpdateOrInsertException;
 import com.jahedul.productparserservice.models.FileUploadSummaryResource;
 import com.jahedul.productparserservice.repositories.ProductRepository;
 import com.jahedul.productparserservice.utils.ProductExcelParser;
@@ -97,18 +98,20 @@ public class DefaultProductServiceTest {
         verify(fileUploadSummaryService).saveFileUploadSummary(any(FileUploadSummaryResource.class));
     }
 
-    @Test
-    public void testUploadProductsFromFile_whenNoNewProducts_shouldNotCallSaveAll() throws IOException {
+    @Test()
+    public void testUploadProductsFromFile_whenNoNewProducts_shouldNotDoAnyDbOperationAndThrowException() throws IOException {
         List<Product> newProducts = Arrays.asList(product1);
         when(productExcelParser.parseFileToProducts(mockFile)).thenReturn(newProducts);
         Set<String> existingSkus = new HashSet<>(Arrays.asList(sku1));
         when(productRepository.findAllSkus()).thenReturn(new ArrayList<>(existingSkus));
         when(productRepository.findAllById(existingSkus)).thenReturn(Collections.singletonList(product1));
 
-        productService.uploadProductsFromFile(mockFile);
+        assertThrows(NoRecordToUpdateOrInsertException.class, () -> {
+            productService.uploadProductsFromFile(mockFile);
+        });
 
         verify(productRepository, never()).saveAll(anyList());
-        verify(fileUploadSummaryService).saveFileUploadSummary(any(FileUploadSummaryResource.class));
+        verify(fileUploadSummaryService, never()).saveFileUploadSummary(any(FileUploadSummaryResource.class));
     }
 
     @Test
@@ -126,7 +129,6 @@ public class DefaultProductServiceTest {
         verify(productValidator).validate(product);
         verify(productValidator).validate(product1);
         verify(productValidator).validate(product2);
-
     }
 
 
