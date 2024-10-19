@@ -40,6 +40,8 @@ public class DefaultProductService implements ProductService {
     @Override
     @Transactional
     public void uploadProductsFromFile(MultipartFile file) throws IOException {
+        long s = System.currentTimeMillis();
+        System.out.println("uploading service initiated");
         List<Product> newProducts = productExcelParser.parseFileToProducts(file);
 
         Set<String> existingSkus = new HashSet<>(productRepository.findAllSkus());
@@ -63,6 +65,8 @@ public class DefaultProductService implements ProductService {
     }
 
     private ProductUploadResult processProducts(List<Product> newProducts, Map<String, Product> existingProductMap) {
+        System.out.println("product processing started");
+        long s = System.currentTimeMillis();
         List<Product> productsToAdd = new ArrayList<>();
         List<Product> productsToUpdate = new ArrayList<>();
         int productsAdded = 0;
@@ -83,7 +87,9 @@ public class DefaultProductService implements ProductService {
                 productsAdded++;
             }
         }
-
+        long e = System.currentTimeMillis();
+        long d = e - s;
+        System.out.println("product processing finished with time: " + d);
 
         return ProductUploadResult.builder()
                 .productsToAdd(productsToAdd)
@@ -107,6 +113,9 @@ public class DefaultProductService implements ProductService {
     }
 
     private void saveProducts(List<Product> productsToAdd, List<Product> productsToUpdate) {
+        System.out.println("saving to db initiated");
+        long s = System.currentTimeMillis();
+
         try {
             Stream.of(productsToAdd, productsToUpdate)
                     .filter(list -> !list.isEmpty())
@@ -116,6 +125,9 @@ public class DefaultProductService implements ProductService {
             String sku = ExceptionParser.extractSkuFromExceptionMessage(ex.getMessage());
             throw new DuplicateSkuException(sku);
         }
+        long e = System.currentTimeMillis();
+        long d = e - s;
+        System.out.println("saving to db finished time took : " + d);
     }
 
     private void saveFileUploadSummary(String fileName, ProductUploadResult result) {
