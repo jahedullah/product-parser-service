@@ -1,4 +1,4 @@
-package com.jahedul.productparserservice.exception;
+package com.jahedul.productparserservice.exceptions;
 
 public class SummaryNotFoundException extends RuntimeException {
     public SummaryNotFoundException(String msg) {

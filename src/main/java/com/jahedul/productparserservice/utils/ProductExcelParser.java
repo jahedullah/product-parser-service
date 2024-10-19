@@ -1,6 +1,6 @@
-package com.jahedul.productparserservice.util;
+package com.jahedul.productparserservice.utils;
 
-import com.jahedul.productparserservice.entity.Product;
+import com.jahedul.productparserservice.entities.Product;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;

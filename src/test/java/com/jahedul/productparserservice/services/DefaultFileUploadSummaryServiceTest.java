@@ -1,8 +1,8 @@
-package com.jahedul.productparserservice.service;
+package com.jahedul.productparserservice.services;
 
-import com.jahedul.productparserservice.entity.FileUploadSummary;
-import com.jahedul.productparserservice.model.FileUploadSummaryResource;
-import com.jahedul.productparserservice.repository.FileUploadSummaryRepository;
+import com.jahedul.productparserservice.entities.FileUploadSummary;
+import com.jahedul.productparserservice.models.FileUploadSummaryResource;
+import com.jahedul.productparserservice.repositories.FileUploadSummaryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

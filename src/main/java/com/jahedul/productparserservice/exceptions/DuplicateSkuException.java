@@ -1,4 +1,4 @@
-package com.jahedul.productparserservice.exception;
+package com.jahedul.productparserservice.exceptions;
 
 import lombok.Getter;
 

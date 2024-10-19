@@ -1,4 +1,4 @@
-package com.jahedul.productparserservice.util;
+package com.jahedul.productparserservice.utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

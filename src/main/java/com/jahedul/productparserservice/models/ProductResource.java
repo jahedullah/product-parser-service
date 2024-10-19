@@ -1,4 +1,4 @@
-package com.jahedul.productparserservice.model;
+package com.jahedul.productparserservice.models;
 
 import lombok.Getter;
 import lombok.Setter;

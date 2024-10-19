@@ -1,6 +1,6 @@
-package com.jahedul.productparserservice.util;
+package com.jahedul.productparserservice.utils;
 
-import com.jahedul.productparserservice.entity.Product;
+import com.jahedul.productparserservice.entities.Product;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import lombok.RequiredArgsConstructor;

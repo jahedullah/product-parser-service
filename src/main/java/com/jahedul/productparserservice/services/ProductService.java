@@ -1,12 +1,11 @@
-package com.jahedul.productparserservice.service;
+package com.jahedul.productparserservice.services;
 
-import com.jahedul.productparserservice.entity.Product;
+import com.jahedul.productparserservice.entities.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Optional;
 
 public interface ProductService {

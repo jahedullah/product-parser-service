@@ -1,4 +1,4 @@
-package com.jahedul.productparserservice.exception;
+package com.jahedul.productparserservice.exceptions;
 
 public class ProductNotFoundException extends RuntimeException {
     public ProductNotFoundException(String msg) {

@@ -1,8 +1,8 @@
-package com.jahedul.productparserservice.controller;
+package com.jahedul.productparserservice.controllers;
 
-import com.jahedul.productparserservice.entity.Product;
-import com.jahedul.productparserservice.exception.ProductNotFoundException;
-import com.jahedul.productparserservice.service.ProductService;
+import com.jahedul.productparserservice.entities.Product;
+import com.jahedul.productparserservice.exceptions.ProductNotFoundException;
+import com.jahedul.productparserservice.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

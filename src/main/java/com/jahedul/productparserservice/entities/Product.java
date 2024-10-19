@@ -1,4 +1,4 @@
-package com.jahedul.productparserservice.entity;
+package com.jahedul.productparserservice.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;

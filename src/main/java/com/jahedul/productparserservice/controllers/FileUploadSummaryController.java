@@ -1,8 +1,8 @@
-package com.jahedul.productparserservice.controller;
+package com.jahedul.productparserservice.controllers;
 
-import com.jahedul.productparserservice.entity.FileUploadSummary;
-import com.jahedul.productparserservice.exception.SummaryNotFoundException;
-import com.jahedul.productparserservice.service.FileUploadSummaryService;
+import com.jahedul.productparserservice.entities.FileUploadSummary;
+import com.jahedul.productparserservice.exceptions.SummaryNotFoundException;
+import com.jahedul.productparserservice.services.FileUploadSummaryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

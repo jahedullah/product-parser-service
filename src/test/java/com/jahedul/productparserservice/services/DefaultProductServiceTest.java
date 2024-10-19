@@ -1,10 +1,10 @@
-package com.jahedul.productparserservice.service;
+package com.jahedul.productparserservice.services;
 
-import com.jahedul.productparserservice.entity.Product;
-import com.jahedul.productparserservice.model.FileUploadSummaryResource;
-import com.jahedul.productparserservice.repository.ProductRepository;
-import com.jahedul.productparserservice.util.ProductExcelParser;
-import com.jahedul.productparserservice.util.ProductValidator;
+import com.jahedul.productparserservice.entities.Product;
+import com.jahedul.productparserservice.models.FileUploadSummaryResource;
+import com.jahedul.productparserservice.repositories.ProductRepository;
+import com.jahedul.productparserservice.utils.ProductExcelParser;
+import com.jahedul.productparserservice.utils.ProductValidator;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

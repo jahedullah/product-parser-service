@@ -1,6 +1,6 @@
-package com.jahedul.productparserservice.repository;
+package com.jahedul.productparserservice.repositories;
 
-import com.jahedul.productparserservice.entity.FileUploadSummary;
+import com.jahedul.productparserservice.entities.FileUploadSummary;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
