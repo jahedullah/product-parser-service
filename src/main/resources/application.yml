@@ -3,10 +3,9 @@ spring:
     name: Product parser service
 
   datasource:
-#    url: jdbc:mysql://localhost:3306/productParserDb
-    url: jdbc:mysql://localhost:3306/productParserDb?cachePrepStmts=true&useServerPrepStmts=true&rewriteBatchedStatements=true
+    url: jdbc:mysql://localhost:3306/productParserDb?allowPublicKeyRetrieval=true&cachePrepStmts=true&useServerPrepStmts=true&rewriteBatchedStatements=true
     username: root
-    password: WallStreetDocs
+    password: 12345678
     driver-class-name: com.mysql.cj.jdbc.Driver
   servlet:
     multipart:
