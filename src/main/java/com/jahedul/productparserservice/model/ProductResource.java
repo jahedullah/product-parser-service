@@ -1,12 +1,12 @@
 package com.jahedul.productparserservice.model;
 
-import lombok.Builder;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
-@Builder
+@Getter
 @Setter
 public class ProductResource {
     private String sku;
