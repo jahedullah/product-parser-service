@@ -5,5 +5,5 @@ import com.jahedul.productparserservice.model.FileUploadSummaryResource;
 
 public interface FileUploadSummaryService {
     FileUploadSummary getSummaryOfLastUploadedFile();
-    FileUploadSummary saveFileUploadSummary(FileUploadSummaryResource fileUploadSummaryResource);
+    void saveFileUploadSummary(FileUploadSummaryResource fileUploadSummaryResource);
 }
